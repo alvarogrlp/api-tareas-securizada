@@ -3,6 +3,7 @@ C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\aut
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\auth\dto\LoginRequest.java
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\auth\dto\TokenResponse.java
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\auth\service\AuthService.java
+C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\tasks\controller\DemoController.java
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\tasks\infrastructure\openapi\OpenApiConfig.java
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\tasks\infrastructure\security\JwtAuthenticationFilter.java
 C:\Users\alvar\Desktop\Programacion\Nueva carpeta\src\main\java\com\docencia\tasks\infrastructure\security\JwtService.java

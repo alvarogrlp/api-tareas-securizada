@@ -31,14 +31,23 @@ Para poner en funcionamiento este sistema y realizar pruebas de acceso, siga est
 3. **Acceso**: Una vez que el sistema este en marcha, podra ver la interfaz de control abriendo su navegador web y pegando la siguiente direccion:
    http://localhost:8080/swagger-ui.html
 
-## Pasos para realizar una prueba de acceso
+## Pasos para realizar una prueba de acceso completa
 
-Si desea comprobar como el sistema valida a un usuario:
+Si desea comprobar como el sistema protege la informacion:
 
-1. Entre en la direccion mencionada arriba (Interfaz de pruebas).
-2. Busque la opcion que dice **/api/auth/login** y haga clic en el boton de Try it out.
-3. Introduzca las credenciales de prueba:
-   - **Usuario**: user
-   - **Contraseña**: pass
-4. Haga clic en el boton de Execute.
-5. El sistema le devolvera un codigo largo (llave digital). A partir de ese momento, podra usar esa llave para acceder al resto de apartados protegidos del sistema.
+1. **Obtener la llave (Login)**:
+   - Entre en la direccion mencionada arriba.
+   - Busque la opcion **/api/auth/login** y pulse **Try it out**.
+   - Use estas credenciales -> Usuario: `user` | Contraseña: `pass`
+   - Pulse **Execute** y copie el codigo largo que aparece en `token` (esa es su llave digital).
+
+2. **Usar la llave**:
+   - Suba al principio de la pagina y pulse el boton **Authorize** (el candado).
+   - Pegue el codigo que copio anteriormente y pulse **Authorize** y luego **Close**.
+
+3. **Probar acceso seguro**:
+   - Busque la opcion **/api/demo** (esta es una zona privada).
+   - Pulse **Try it out** y luego **Execute**.
+   - El servidor le respondera con un saludo, confirmando que su llave es valida.
+   
+   *Nota: Si intenta acceder al paso 3 sin haber realizado el paso 2 (sin llave), el sistema le bloqueara el acceso mostrando un Error 403.*
