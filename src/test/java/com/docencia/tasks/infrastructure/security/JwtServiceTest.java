@@ -68,4 +68,49 @@ class JwtServiceTest {
         boolean isValid = jwtService.isTokenValid(token, userDetails);
         assertFalse(isValid);
     }
+
+    @Test
+    void testIsValidSimple() {
+        String username = "testuser";
+        String token = jwtService.generateToken(username);
+
+        boolean isValid = jwtService.isValid(token);
+        assertTrue(isValid);
+    }
+
+    @Test
+    void testIsValidSimpleInvalid() {
+        String token = "invalid.token.string";
+        boolean isValid = jwtService.isValid(token);
+        assertFalse(isValid);
+    }
+
+    @Test
+    void testExpiredToken() throws InterruptedException {
+        // Create service with 1 second expiration (represented as close to 0 minutes
+        // for the test if possible,
+        // but the service takes long minutes.
+        // Actually the service property is expirationMinutes.
+        // If I pass 0 or a very small float converted to long, it might be 0 minutes.
+        // Let's rely on creating a token manually that is expired.
+
+        // We can't easy inject a "past" date into generateToken without changing the
+        // service code.
+        // But we can create a token using Jwts directly in the test ensuring it is
+        // expired.
+
+        java.util.Map<String, Object> claims = new java.util.HashMap<>();
+        String expiredToken = Jwts.builder()
+                .subject("user")
+                .expiration(new java.util.Date(System.currentTimeMillis() - 1000 * 60)) // Expired 1 min ago
+                .signWith(io.jsonwebtoken.security.Keys
+                        .hmacShaKeyFor(secret.getBytes(java.nio.charset.StandardCharsets.UTF_8)))
+                .compact();
+
+        boolean isValid = jwtService.isValid(expiredToken);
+        assertFalse(isValid);
+
+        // Also checks exception handling in isTokenExpired
+        assertThrows(io.jsonwebtoken.ExpiredJwtException.class, () -> jwtService.extractUsername(expiredToken));
+    }
 }

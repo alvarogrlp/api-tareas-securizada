@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.177" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.24" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -63,11 +63,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testExpiredToken" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.159"/>
-  <testcase name="testIsValidSimple" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.005"/>
-  <testcase name="testIsTokenValid" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.003"/>
-  <testcase name="testExtractUsername" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.002"/>
-  <testcase name="testGenerateToken" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.003"/>
-  <testcase name="testIsValidSimpleInvalid" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.002"/>
-  <testcase name="testIsTokenInvalidUsername" classname="com.docencia.tasks.infrastructure.security.JwtServiceTest" time="0.002"/>
+  <testcase name="testDoFilterInternal_NoAuthHeader" classname="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.224"/>
+  <testcase name="testDoFilterInternal_Exception" classname="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.005"/>
+  <testcase name="testDoFilterInternal_InvalidToken" classname="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.002"/>
+  <testcase name="testDoFilterInternal_InvalidHeaderStart" classname="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.001"/>
+  <testcase name="testDoFilterInternal_ValidToken" classname="com.docencia.tasks.infrastructure.security.JwtAuthenticationFilterTest" time="0.003"/>
 </testsuite>
